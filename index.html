@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wetick | Homepage</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                font-family: Poppins;
+            }
+            .logo{
+                display: flex;
+                align-items: center;
+            }
+            .logo > .text {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            .logo > .text > span:nth-child(1) {
+                color: #3366FF;
+            }
+            .logo > .text > span:nth-child(2) {
+                color: #FF3D71;
+            }
+            .people > img {
+                max-width: 500px;
+                height: auto;
+                -webkit-mask-image: linear-gradient(rgba(0,0,0,1) 50%, rgba(0,0,0,0.1), rgba(0,0,0,0));
+                mask-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.1));
+            }
+            .icon > img{
+                width: 16px;
+                height: 16px;
+            }
+            .event-lists {
+                display: inline-flex;
+                gap: 30px;
+            }
+            .event-lists > .event{
+                position: relative;
+                width: 260px;
+                height: 376px;
+                border-radius: 40px;
+                overflow: hidden;
+            }
+            .event-lists > .event > img {
+                object-fit: cover;
+                width: auto;
+                height: 100%;
+            }
+            .event-lists > .event > .text{
+                position: absolute;
+                bottom: 0;
+                background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7), rgba(0,0,0,1));
+                width: 100%;
+                color: white;
+                padding: 25px;
+                display: flex;
+                flex-direction: column;
+            }
+            .event-lists > .event > .text > .title {
+                font-size: 22px;
+                letter-spacing: 2px;
+                margin-top: 5px;
+                margin-bottom: 25px;
+            }
+            .event-lists > .event > .text > .attendant-lists {
+                display: flex;
+                margin-left: 10px;
+            }
+            .event-lists > .event > .text > .attendant-lists > .profile {
+                width: 29px;
+                height: 29px;
+                border-radius: 16px;
+                border: 2px solid white;
+                overflow: hidden;
+                margin-left: -10px;
+            }
+            .event-lists > .event > .text > .attendant-lists > .profile > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .events-overflow{
+                overflow-x: scroll;
+                margin-left: 120px;
+                padding-right: 120px;
+            }
+            .date-list {
+                display: flex;
+                gap: 50px;
+                justify-content: center;
+            }
+
+            .date-list .date {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                width: 50px;
+                height: 75px;
+                position: relative;
+            }
+            .date-list .date.active {
+                border: 3px solid #F87171;
+                border-radius: 16px;
+                color: #F87171;
+            }
+            .date-list .date.active:after{
+                content: '\2022';
+                position: absolute;
+                font-size: 20px;
+                bottom: -8px;
+            }
+            .date-list .date-divider {
+                display: flex;
+                gap: 50px;
+                justify-content: center;
+            }
+            .top-section {
+                display: flex;
+                gap: 30px;
+                flex-direction: column;
+                align-items: center;
+                margin: 40px 0;
+            }
+            .top-section > .section-title {
+                font-weight: bold;
+                font-size: 36px;
+                letter-spacing: 1px;
+            }
+            .top-section > .badger {
+                background-color: #F87171;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                color: #EF4444;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 20px;
+            }
+            .top-section > .badger > div:first-child {
+                width: 50px;
+                height: 0;
+                border-top: 2px solid #EF4444;
+                border-color: white;
+            }
+            .partner {
+                background-color: #373A42;
+                background-image: url(/assets/sponsor-accent.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                color: white;
+                padding: 95px 0;
+            }
+            .partner > .top-section > .badger {
+                background-color: rgba(255,255,255, 0.25);
+            }
+            
+            @media screen and (max-width: 460px){
+                .people > img {
+                    max-width: 100px;
+                 }
+                .date-list{
+                    flex-direction: column;
+                }
+                .events-overflow{
+                    margin-left: 10px;
+                    padding-right: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="flex h-[750px] flex-col">
+            <nav class="flex md:flex-row flex-col md:h-24 px-8">
+                <div class="logo">
+                    <div>
+                        <img src="/assets/logo.png" alt="logo">
+                    </div>
+                    <div class="text">
+                        <span>We</span><span>tick</span>
+                    </div>
+                </div>
+                <div class="flex md:flex-row flex-col flex-1 md:pl-8 mb-5 md:mb-0">
+                    <ul class="flex md:flex-row flex-col flex-1 gap-3">
+                        <li class="flex justify-center items-center min-w-[100px]">
+                            <a class="text-gray-600 border-b-2 pb-1 border-red-400 font-bold" href="#">Home</a>
+                        </li>
+                        <li class="flex justify-center items-center min-w-[100px]">
+                            <a class="text-gray-600 border-b-2 pb-1 border-transparent hover:border-red-400 font-bold" href="#">Create Event</a>
+                        </li>
+                        <li class="flex justify-center items-center min-w-[100px]">
+                            <a class="text-gray-600 border-b-2 pb-1 border-transparent hover:border-red-400 font-bold" href="#">Location</a>
+                        </li>
+                    </ul>
+                    <div class="flex md:flex-row flex-col items-center gap-3">
+                        <div class="w-full">
+                            <a class="text-gray-600 flex justify-center items-center font-bold md:min-w-[180px] w-full tracking-widest h-12 rounded-xl" href="#">Login</a>
+                        </div>
+                        <div class="w-full">
+                            <a class="text-gray-600 flex justify-center items-center text-white font-bold md:min-w-[180px] w-full tracking-widest bg-red-400 hover:bg-red-500 h-12 rounded-xl" href="#">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <section class="flex md:flex-row flex-col md:px-24 py-10 items-center flex-1 bg-red-400 bg-cover bg-no-repeat bg-[url(/assets/heading-accent.png)]">
+                <div class="flex-1 flex flex-col gap-5">
+                    <div class="text-center text-xl md:text-5xl tracking-widest leading-relaxed font-bold text-white max-w-[500px]">Find events you love with our</div>
+                    <form class="block w-full">
+                        <div class="inline-flex items-center bg-white py-2 h-16 px-3 rounded-xl">
+                            <div class="icon">
+                                <img src="/assets/search.png" />
+                            </div>
+                            <input placeholder="Search Event..." class="h-8 border-r outline-none px-3 text-sm" type="text">
+                            <div class="icon ml-3">
+                                <img src="/assets/pin.png" />
+                            </div>
+                            <select class="h-8 outline-none px-3 appearance-none text-sm md:min-w-[200px]">
+                                <option disabled selected>Where?</option>
+                                <option>Bandung</option>
+                                <option>Jakarta</option>
+                            </select>
+                            <button type="submit" class="font-bold rounded-lg text-white h-8 w-8 bg-red-400">&rarr;</button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <div class="people">
+                        <img src="/assets/people.png" alt="people" />
+                    </div>
+                </div>
+            </section>
+        </header>
+        <main>
+            <section class="top-section">
+                <div class="badger">
+                    <div></div>
+                    <div>EVENT</div>
+                </div>
+                <div class="section-title">Events For You</div>
+                <div class="date-list">
+                    <div class="date-divider">
+                        <div class="date">
+                            <div>13</div>
+                            <div>Mon</div>
+                        </div>
+                        <div class="date">
+                            <div>14</div>
+                            <div>Tue</div>
+                        </div>
+                        <div class="date active">
+                            <div>15</div>
+                            <div>Wed</div>
+                        </div>
+                    </div>
+                    <div class="date-divider">
+                        <div class="date">
+                            <div>16</div>
+                            <div>Thu</div>
+                        </div>
+                        <div class="date">
+                            <div>17</div>
+                            <div>Fri</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="events-overflow">
+                <div class="event-lists">
+                    <div class="event">
+                        <img src="/assets/banner1.png" alt="banner1">
+                        <div class="text">
+                            <div class="date">Wed, 15 Nov, 4:00 PM</div>
+                            <div class="title">Sights & Sounds Exhibition</div>
+                            <div class="attendant-lists">
+                                <div class="profile">
+                                    <img src="/assets/profile1.jpg" alt="profile1">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile2.jpg" alt="profile2">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile3.jpg" alt="profile3">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile4.jpg" alt="profile4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <img src="/assets/banner2.png" alt="banner2">
+                        <div class="text">
+                            <div class="date">Thu, 16 Nov, 7:00 PM</div>
+                            <div class="title">See it in Gold Class </div>
+                            <div class="attendant-lists">
+                                <div class="profile">
+                                    <img src="/assets/profile1.jpg" alt="profile1">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile2.jpg" alt="profile2">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile3.jpg" alt="profile3">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile4.jpg" alt="profile4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <img src="/assets/banner1.png" alt="banner1">
+                        <div class="text">
+                            <div class="date">Wed, 15 Nov, 4:00 PM</div>
+                            <div class="title">Sights & Sounds Exhibition</div>
+                            <div class="attendant-lists">
+                                <div class="profile">
+                                    <img src="/assets/profile1.jpg" alt="profile1">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile2.jpg" alt="profile2">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile3.jpg" alt="profile3">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile4.jpg" alt="profile4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <img src="/assets/banner2.png" alt="banner2">
+                        <div class="text">
+                            <div class="date">Thu, 16 Nov, 7:00 PM</div>
+                            <div class="title">See it in Gold Class </div>
+                            <div class="attendant-lists">
+                                <div class="profile">
+                                    <img src="/assets/profile1.jpg" alt="profile1">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile2.jpg" alt="profile2">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile3.jpg" alt="profile3">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile4.jpg" alt="profile4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <img src="/assets/banner1.png" alt="banner1">
+                        <div class="text">
+                            <div class="date">Wed, 15 Nov, 4:00 PM</div>
+                            <div class="title">Sights & Sounds Exhibition</div>
+                            <div class="attendant-lists">
+                                <div class="profile">
+                                    <img src="/assets/profile1.jpg" alt="profile1">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile2.jpg" alt="profile2">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile3.jpg" alt="profile3">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile4.jpg" alt="profile4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <img src="/assets/banner2.png" alt="banner2">
+                        <div class="text">
+                            <div class="date">Thu, 16 Nov, 7:00 PM</div>
+                            <div class="title">See it in Gold Class </div>
+                            <div class="attendant-lists">
+                                <div class="profile">
+                                    <img src="/assets/profile1.jpg" alt="profile1">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile2.jpg" alt="profile2">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile3.jpg" alt="profile3">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile4.jpg" alt="profile4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <img src="/assets/banner1.png" alt="banner1">
+                        <div class="text">
+                            <div class="date">Wed, 15 Nov, 4:00 PM</div>
+                            <div class="title">Sights & Sounds Exhibition</div>
+                            <div class="attendant-lists">
+                                <div class="profile">
+                                    <img src="/assets/profile1.jpg" alt="profile1">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile2.jpg" alt="profile2">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile3.jpg" alt="profile3">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile4.jpg" alt="profile4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <img src="/assets/banner2.png" alt="banner2">
+                        <div class="text">
+                            <div class="date">Thu, 16 Nov, 7:00 PM</div>
+                            <div class="title">See it in Gold Class </div>
+                            <div class="attendant-lists">
+                                <div class="profile">
+                                    <img src="/assets/profile1.jpg" alt="profile1">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile2.jpg" alt="profile2">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile3.jpg" alt="profile3">
+                                </div>
+                                <div class="profile">
+                                    <img src="/assets/profile4.jpg" alt="profile4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="flex justify-center items-center gap-3 my-5 mb-24">
+                <button class="font-bold rounded-lg text-white h-8 w-8 bg-red-400">&larr;</button>
+                <button class="font-bold rounded-lg text-white h-8 w-8 bg-red-400">&rarr;</button>
+            </section>
+            <section class="bg-red-400 m-14 rounded-xl bg-center bg-[url(/assets/discover-accent.png)] bg-no-repeat bg-cover md:p-24 p-8">
+                <div class="py-2 px-5 rounded-full inline-flex items-center gap-2 text-white bg-[rgba(255,255,255,0.25)]">
+                    <div class="w-8 border-t border-white"></div>
+                    <span>LOCATION</span>
+                </div>
+                <div class="flex md:flex-row flex-col gap-5 md:gap-0 text-white mt-5">
+                    <div class="text-xl md:text-5xl font-bold flex-1">Discover Events Near You</div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <img src="/assets/city1.png" alt="city1" />
+                        Jakarta
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <img src="/assets/city2.png" alt="city2" />
+                        Bandung
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <img src="/assets/city3.png" alt="city3" />
+                        Bali
+                    </div>
+                </div>
+                <div class="md:flex hidden text-white mt-5">
+                    <div class="flex-1 flex flex-col items-center">
+                        <img src="/assets/city4.png" alt="city4" />
+                        Aceh
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <img src="/assets/city5.png" alt="city5" />
+                        Solo
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <img src="/assets/city6.png" alt="city6" />
+                        Yogyakarta
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <img src="/assets/city7.png" alt="city7" />
+                        Semarang
+                    </div>
+                </div>
+                <div class="flex justify-center mt-12">
+                    <div><a class="text-red-400 bg-white flex justify-center items-center font-bold min-w-[180px] tracking-widest h-12 rounded-xl" href="#">See All</a></div>
+                </div>
+            </section>
+            <section class="top-section">
+                <div class="badger">
+                    <div></div>
+                    <div>CATEGORY</div>
+                </div>
+                <div class="section-title text-center">Browse Events By Category</div>
+                <div class="flex md:flex-row flex-col flex-1 gap-3">
+                    <div class="flex">
+                        <div class="flex justify-center items-center min-w-[100px]">
+                        <a class="text-gray-600 border-b-2 pb-1 border-red-400 font-bold" href="#">Home</a>
+                        </div>
+                        <div class="flex justify-center items-center min-w-[100px]">
+                            <a class="text-gray-600 border-b-2 pb-1 border-transparent hover:border-red-400 font-bold" href="#">Arts</a>
+                        </div>
+                        <div class="flex justify-center items-center min-w-[100px]">
+                            <a class="text-gray-600 border-b-2 pb-1 border-transparent hover:border-red-400 font-bold" href="#">Outdoors</a>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex justify-center items-center min-w-[100px]">
+                            <a class="text-gray-600 border-b-2 pb-1 border-transparent hover:border-red-400 font-bold" href="#">Workshop</a>
+                        </div>
+                        <div class="flex justify-center items-center min-w-[100px]">
+                            <a class="text-gray-600 border-b-2 pb-1 border-transparent hover:border-red-400 font-bold" href="#">Sport</a>
+                        </div>
+                        <div class="flex justify-center items-center min-w-[100px]">
+                            <a class="text-gray-600 border-b-2 pb-1 border-transparent hover:border-red-400 font-bold" href="#">Festival</a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="flex justify-center items-center min-w-[100px]">
+                            <a class="text-gray-600 border-b-2 pb-1 border-transparent hover:border-red-400 font-bold" href="#">Fashion</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="flex md:flex-row flex-col justify-center items-center gap-5 my-5 mb-24">
+                <div class="hidden md:block">
+                    <button class="hidden md:inline-block font-bold rounded-lg text-white h-8 w-8 bg-red-400">&larr;</button>
+                </div>
+                <div class="w-[300px] h-[350px] rounded-xl overflow-hidden flex flex-col">
+                    <div class="flex-2 overflow-hidden">
+                        <img class="object-cover w-full h-full" src="/assets/banner1.png" alt="banner1" />
+                    </div>
+                    <div class="flex flex-col justify-end flex-1 min-h-[161px] bg-red-400 text-white p-8 relative">
+                        <div class="flex absolute -top-5 ml-2">
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile1.jpg" alt="profile1">
+                            </div>
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile2.jpg" alt="profile2">
+                            </div>
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile3.jpg" alt="profile3">
+                            </div>
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile4.jpg" alt="profile4">
+                            </div>
+                        </div>
+                        <div>Wed, 15 Nov, 4:00 PM</div>
+                        <div class="text-2xl">Sights & Sounds Exhibition</div>
+                    </div>
+                </div>
+                <div class="w-[300px] h-[350px] rounded-xl overflow-hidden flex flex-col">
+                    <div class="flex-2 overflow-hidden">
+                        <img class="object-cover w-full h-full" src="/assets/banner2.png" alt="banner2" />
+                    </div>
+                    <div class="flex flex-col justify-end flex-1 min-h-[161px] bg-red-400 text-white p-8 relative">
+                        <div class="flex absolute -top-5 ml-2">
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile1.jpg" alt="profile1">
+                            </div>
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile2.jpg" alt="profile2">
+                            </div>
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile3.jpg" alt="profile3">
+                            </div>
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile4.jpg" alt="profile4">
+                            </div>
+                        </div>
+                        <div>Wed, 15 Nov, 4:00 PM</div>
+                        <div class="text-2xl">See it in Gold Class</div>
+                    </div>
+                </div>
+                <div class="w-[300px] h-[350px] rounded-xl overflow-hidden flex flex-col">
+                    <div class="flex-2 overflow-hidden">
+                        <img class="object-cover w-full h-full" src="/assets/banner1.png" alt="banner1" />
+                    </div>
+                    <div class="flex flex-col justify-end flex-1 min-h-[161px] bg-red-400 text-white p-8 relative">
+                        <div class="flex absolute -top-5 ml-2">
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile1.jpg" alt="profile1">
+                            </div>
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile2.jpg" alt="profile2">
+                            </div>
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile3.jpg" alt="profile3">
+                            </div>
+                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white -ml-2">
+                                <img class="w-full h-full object-cover" src="/assets/profile4.jpg" alt="profile4">
+                            </div>
+                        </div>
+                        <div>Wed, 15 Nov, 4:00 PM</div>
+                        <div class="text-2xl">Sights & Sounds Exhibition</div>
+                    </div>
+                </div>
+                <div>
+                    <button class="inline-block md:hidden font-bold rounded-lg text-white h-8 w-8 bg-red-400">&larr;</button>
+                    <button class="font-bold rounded-lg text-white h-8 w-8 bg-red-400">&rarr;</button>
+                </div>
+            </section>
+            <div class="partner p-5 md:py-24">
+                <section class="top-section">
+                    <div class="badger">
+                        <div></div>
+                        <div>PARTNER</div>
+                    </div>
+                    <div class="section-title text-center">Our Trusted Partners</div>
+                    <div class="text-gray-400">By companies like :</div>
+                    <div class="flex gap-16 md:flex-row flex-col">
+                        <div class="flex gap-16">
+                            <div>
+                                <img src="/assets/sponsor1.png" alt="sponsor">
+                            </div>
+                            <div>
+                                <img src="/assets/sponsor2.png" alt="sponsor">
+                            </div>
+                        </div>
+                        <div class="flex gap-16">
+                            <div>
+                                <img src="/assets/sponsor3.png" alt="sponsor">
+                            </div>
+                            <div>
+                                <img src="/assets/sponsor4.png" alt="sponsor">
+                            </div>
+                        </div>
+                        <div class="flex gap-16">
+                            <div>
+                                <img src="/assets/sponsor5.png" alt="sponsor">
+                            </div>
+                            <div>
+                                <img src="/assets/sponsor6.png" alt="sponsor">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="py-24 text-gray-600">
+            <div class="flex flex-col md:flex-row px-12">
+                <div class="flex-1 min-w-[300px]">
+                    <div class="flex flex-col gap-5">
+                        <div class="logo">
+                            <div>
+                                <img src="/assets/logo.png" alt="logo">
+                            </div>
+                            <div class="text">
+                                <span>We</span><span>tick</span>
+                            </div>
+                        </div>
+                        <div>Find events you love with our</div>
+                        <div class="flex gap-5">
+                            <div>
+                                <img src="/assets/icon-fb.png" alt="icon-fb" />
+                            </div>
+                            <div>
+                                <img src="/assets/icon-wa.png" alt="icon-wa" />
+                            </div>
+                            <div>
+                                <img src="/assets/icon-ig.png" alt="icon-ig" />
+                            </div>
+                            <div>
+                                <img src="/assets/icon-tw.png" alt="icon-tw" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <div class="font-bold mb-5">Wetick</div>
+                    <ul class="flex flex-col gap-3">
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Features</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">Payments</a>
+                        </li>
+                        <li>
+                            <a href="#">Mobile App</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1">
+                    <div class="font-bold mb-5">Features</div>
+                    <ul class="flex flex-col gap-3">
+                        <li>
+                            <a href="#">Booking</a>
+                        </li>
+                        <li>
+                            <a href="#">Create Event</a>
+                        </li>
+                        <li>
+                            <a href="#">Discover</a>
+                        </li>
+                        <li>
+                            <a href="#">Register</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1">
+                    <div class="font-bold mb-5">Company</div>
+                    <ul class="flex flex-col gap-3">
+                        <li>
+                            <a href="#">Partnership</a>
+                        </li>
+                        <li>
+                            <a href="#">Help</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms of Service</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Sitemap</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="px-12">&copy; 2020 Wetick All Rights Reserved</div>
+        </footer>
+    </body>
+</html>
